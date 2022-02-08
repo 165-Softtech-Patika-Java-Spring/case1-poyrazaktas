@@ -1,12 +1,22 @@
-import house.House;
-import house.SummerHouse;
-import house.Villa;
+import java.util.List;
+import house.*;
+import housefactory.*;
 
 public class Main {
     public static void main(String[] args) {
-        House house = new House(1_100_400L, 200, 4, 1);
-        House house2 = new Villa(2_100_400L, 300, 6, 2);
-        House house3 = new SummerHouse(100_400L, 100, 3, 1);
+        HouseFactory houseFactory = new HouseFactory();
+        List<House> houses = houseFactory.getList();
+        VillaFactory villaFactory = new VillaFactory();
+        List<House> villas = villaFactory.getList();
+        SummerHouseFactory summerHouseFactory = new SummerHouseFactory();
+        List<House> summerHouses = summerHouseFactory.getList();
+
+        System.out.println("Houses: ");
+        houses.forEach(System.out::println);
+        System.out.println("Villas: ");
+        villas.forEach(System.out::println);
+        System.out.println("Summer houses: ");
+        summerHouses.forEach(System.out::println);
 
     }
 }
